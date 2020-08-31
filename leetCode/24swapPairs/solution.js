@@ -10,6 +10,7 @@
  * @return {ListNode}
  */
 
+ //交换链表中相邻节点
 var swapPairs = function(head) {
     var i = 1;
     var pre = head;

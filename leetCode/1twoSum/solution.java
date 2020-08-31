@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+//查找数组中两数之和==target的索引
+//时间复杂度O(n)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] indexs = new int[2];
