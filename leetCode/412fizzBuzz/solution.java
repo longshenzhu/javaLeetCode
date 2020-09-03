@@ -8,17 +8,17 @@ class Solution {
         for(int i=1;i<=n;i++){
             if(i%15 == 0){
                 strings.add("FizzBuzz");
-                continue;
-            };
+            }else
             if(i%3 == 0){
                 strings.add("Fizz");
-                continue;
-            };
+            }else
             if(i%5 == 0){
                 strings.add("Buzz");
-                continue;
-            };
-            strings.add("" + i);
+            }else{
+                // strings.add("" + i);
+                strings.add(Integer.toString(i));
+            }
+            
         }
         return strings;
     }
