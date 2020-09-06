@@ -1,18 +1,30 @@
 
+//一维数组的坐标变化：i, j
 class Solution {
     public void moveZeroes(int[] nums) {
-        int j = 0;
-        for(int i = 0 ; i < nums.length; i++)
-        {
-            if(nums[i] != 0)
-            {
-                nums[j++] = nums[i];
+        for (int i = 0, j =0; i < nums.length; i++) {
+            if(nums[i] != 0){
+                if(j< i){
+                    //交换值，j++
+                    nums[j++] = nums[i];
+                    nums[i] = 0;
+                }
+                j++;
             }
         }
-        while(j < nums.length)
-        {
-            nums[j++] = 0;
-        }
+
+        // int j = 0;
+        // for(int i = 0 ; i < nums.length; i++)
+        // {
+        //     if(nums[i] != 0)
+        //     {
+        //         nums[j++] = nums[i];
+        //     }
+        // }
+        // while(j < nums.length)
+        // {
+        //     nums[j++] = 0;
+        // }
 
         //最优解
         //双指针，不为0时，交换指针的值
@@ -34,8 +46,9 @@ class Solution {
         //         if (i > j) {// #1
         //             nums[j] = nums[i];
         //             nums[i] = 0;
+        //         }else{
+        //             j++;
         //         }
-        //         j++;
         //     }
         // }
     }
