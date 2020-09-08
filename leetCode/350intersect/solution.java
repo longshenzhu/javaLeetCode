@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,9 +8,9 @@ class Solution {
             return intersect(nums2, nums1);
         }
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int num : nums1) {
-            int count = map.getOrDefault(num, 0) + 1;
-            map.put(num, count);
+        for (int i=0;  i< nums1.length; i++) {
+            int count = map.getOrDefault(nums1[i], 0) + 1;
+            map.put(nums1[i], count);
         }
         int[] intersection = new int[nums1.length];
         int index = 0;

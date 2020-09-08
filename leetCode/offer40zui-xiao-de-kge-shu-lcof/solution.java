@@ -2,6 +2,8 @@ import java.util.PriorityQueue;
 
 //请参考四个解法 https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/solution/3chong-jie-fa-miao-sha-topkkuai-pai-dui-er-cha-sou/
 class Solution {
+
+    //数据范围有限时直接计数排序就行了：O(N)
     public int[] getLeastNumbers(int[] arr, int k) {
         if(arr.length ==0 || k == 0)return new int[0];
         if(k > arr.length)return arr;

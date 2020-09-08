@@ -8,7 +8,7 @@ import javafx.util.Pair;
 class Solution {
     //前k个高频元素
     public int[] topKFrequent(int[] nums,  int k) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             // map.put(num, map.getOrDefault(num, 0) + 1);
             if (map.containsKey(num)) {
