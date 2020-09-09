@@ -1,43 +1,42 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 class Solution {
 
-    private List<List<Integer>> ans = new ArrayList<>();
+    //参考：https://leetcode-cn.com/problems/combinations/solution/77-zu-he-hui-su-fa-jing-dian-ti-mu-by-carlsun-2/
     public List<List<Integer>> combine(int n, int k) {
-        // List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> res = new ArrayList<>();
-        res.set(0, 1);
-        recusion(0,res, n, k);
+        List<List<Integer>> ans = new ArrayList<>();
+        Deque<Integer> res = new ArrayDeque<>();
+        recursion(1,n,k, res, ans);
         return ans;
         
     }
 
-    public List<Integer> recusion(int level,List<Integer> res, int n, int k){
-        //重复选取每一个元素的值
-
-        //1.terminator
-        if(level> k -1){
-            return res;
+    public void recursion(int start, int n,int k,  Deque<Integer> list, List<List<Integer>> ans) {
+        if(list.size()== k){
+            ans.add(new ArrayList<>(list));
+            return;
         }
-        if(res.get(res.size()-1) < n){
-            ans.add(recusion(res.size(), res, n, k));
 
-            List<Integer> newRes = new ArrayList<>();
-            for (int i = 0; i < res.size()-1; i++) {
-                newRes.set(i, res.get(i));
-            }
-            int vale = res.get(res.size()-1) + 1;
-            while(res.contains(vale) && vale<= n){
-                vale ++;
-            }
-            newRes.set(res.size(), vale);
-            ans.add(recusion(level+1, newRes, n, k));
-        }else if(res.get(level)== n){
-            ans.add(recusion(level+1, res, n, k));
+        for (int i = start; i <=n; i++) {
+            list.addLast(i);
+            recursion(i+1, n, k, list, ans);
+            list.removeLast();
         }
-        //3 recusion 
-        return recusion(res.size(), res, n, k);
-
     }
+    //递归、回溯模板
+    // backtracking() {
+    //     if (终止条件) {
+    //         存放结果;
+    //     }
+    
+    //     for (选择：选择列表（可以想成树中节点孩子的数量）) {
+    //         递归，处理节点;
+    //         backtracking();
+    //         回溯，撤销处理结果
+    //     }
+    // }
+    
 }
