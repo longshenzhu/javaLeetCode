@@ -1,4 +1,6 @@
-import sun.reflect.generics.tree.Tree;
+import java.lang.annotation.Retention;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Definition for a binary tree node.
@@ -10,31 +12,58 @@ import sun.reflect.generics.tree.Tree;
  * }
  */
 class Solution {
+    //中序遍历简介参考版
+    private double pre = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
-        //中序遍历法，上个节点小于下个节点
-        if(root.left != null){
-            return inorder(root.left,root);
-        }else if(root.right != null){
-            return inorder(root,root.right);
-        }
-        return false;
+        if(root == null)return false;
         
+        if(!isValidBST(root.left))return false;
+        if(root.val <= pre)return false;
+        pre = root.val;
+        if(!isValidBST(root.right))return false;
+        return true;
     }
 
-    private boolean inorder(TreeNode pre, TreeNode curNode) {
-        //terminator
-        if(pre.val> curNode.val){
-            return false;
-        }
+    // 官方递归版
+    // public boolean isValidBST(TreeNode root) {
+    //     return solution1(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    // }
+    // private boolean solution1(TreeNode root, long minValue, long maxValue) {
+    //     if (root == null)  return true;
+    //     if (root.val <= minValue || root.val >= maxValue) return false;
+    //     return solution1(root.left, minValue, root.val)
+    //             && solution1(root.right, root.val, maxValue);
+    // }
+    
+    // //中序遍历：自创版
+    // private boolean ans = true;
+    // public boolean isValidBST(TreeNode root) {
+    //     //中序遍历法，上个节点小于下个节点
+    //     List<TreeNode> res = new ArrayList<>();
+    //     inorderTraversal(root, res);
+    //     return ans;
         
-        if(curNode.left != null) {
-            if(!inorder(curNode.left, curNode)) return false;
-        }
-        if(curNode.right != null){
-            if(!inorder(curNode, curNode.right)) return false;
-        }
-        return true;
-	}
+    // }
+    // public void inorderTraversal(TreeNode curNode, List<TreeNode> res) {
+    //     //terminator
+    //     if(curNode == null || !ans){
+    //         return;
+    //     }
+        
+    //     if(curNode.left != null) {
+    //         inorderTraversal(curNode.left, res);
+    //     }
+    //     if(!res.isEmpty() && res.get(res.size()-1).val > curNode.val){
+    //         ans = false;
+    //         return;
+    //     }else{
+    //         res.add(curNode);
+    //     }
+        
+    //     if(curNode.right != null){
+    //         inorderTraversal(curNode.right, res);
+    //     }
+	// }
 
     public class TreeNode {
         int val;
