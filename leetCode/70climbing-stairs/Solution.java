@@ -20,10 +20,10 @@ public class Solution {
     //     return result;
     // }
 
-    public static void main(String[] args) {
-        Solution test = new Solution();
-        int res = test.climbStairs(5);
-        System.out.println(res);
+    // public static void main(String[] args) {
+    //     Solution test = new Solution();
+    //     int res = test.climbStairs(5);
+    //     System.out.println(res);
 
-    }
+    // }
 }
