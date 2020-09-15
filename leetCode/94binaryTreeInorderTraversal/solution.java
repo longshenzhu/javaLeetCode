@@ -50,25 +50,44 @@ class Solution {
         }
     }
 
+    
 
-    //基于栈的遍历（迭代法）: 左孩子节点依次入栈，无左孩子则开始出栈，出栈时对右孩子执行上述操作
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> vals = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+
+    // //基于栈的遍历（迭代法）: 左孩子节点依次入栈，无左孩子则开始出栈，出栈时对右孩子执行上述操作
+    // public List<Integer> inorderTraversal(TreeNode root) {
+    //     List<Integer> vals = new ArrayList<>();
+    //     Stack<TreeNode> stack = new Stack<>();
         
-        TreeNode curNode = root;
-        while(curNode != null || !stack.isEmpty()){
-            //找到最左孩子，依次入栈
-            while(curNode != null){
-                stack.push(root);
-                curNode = curNode.left;
-            }
-            //依次出栈
-            curNode = stack.pop();
-            vals.add(curNode.val);
-            curNode = curNode.right;
-        }
+    //     TreeNode curNode = root;
+    //     while(curNode != null || !stack.isEmpty()){
+    //         //找到最左孩子，依次入栈
+    //         while(curNode != null){
+    //             stack.push(root);
+    //             curNode = curNode.left;
+    //         }
+    //         //依次出栈
+    //         curNode = stack.pop();
+    //         vals.add(curNode.val);
+    //         curNode = curNode.right;
+    //     }
 
-        return vals;
-    }
+    //     return vals;
+    // }
+
+    // public List<Integer> inorderTraversal(TreeNode root){
+    //     List<Integer> ans = new ArrayList<>();
+    //     Stack<TreeNode> stack = new Stack<>();
+
+    //     while(root != null && !stack.isEmpty()){
+    //         while(root != null){
+    //             stack.push(root);
+    //             root = root.left;
+    //         }
+    //         TreeNode cur = stack.pop();
+    //         ans.add(cur.val);
+    //         root = cur.right;
+    //     }
+
+    //     return ans;
+    // }
 }

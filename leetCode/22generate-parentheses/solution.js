@@ -15,7 +15,7 @@ generateParenthesis(3);
 
 function recursion(str, ans, n , left, right){
     //1.terminator
-    if(str.length == 2 *n) {
+    if(left == n && right == n) {
         ans.push(str);
         return;
     }

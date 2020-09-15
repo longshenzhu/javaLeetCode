@@ -11,6 +11,11 @@ var twoSum = function(nums, target) {
         map.set(nums[i],i);
     }
     return [];
+
+};
+console.log(twoSum([2,7,11,15],9));
+
+
     // for(var i=0;i<nums.length;i++){
     //     var index = nums.indexOf(target-nums[i])
     //     if(i == index){
@@ -21,5 +26,3 @@ var twoSum = function(nums, target) {
     //     }
     // }
     // return [];
-};
-console.log(twoSum([2,7,11,15],9));
