@@ -1,38 +1,40 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Stack;
 
 class Solution {
+    public int minPath = Integer.MAX_VALUE;
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if(!wordList.contains(endWord))return 0;
 
-
-        //找到了单词，记录路径长度返回
-        //依次找变换过一个字母的单词
-        //记录访问过的单词，避免重复访问
-        
-        return 0;
+        // List<String> path = new ArrayList<>();
+        HashSet<String> path = new HashSet<>();
+        path.add(beginWord);
+        dfs(beginWord, endWord, wordList, path);
+        System.out.println(path);
+        return minPath < Integer.MAX_VALUE? minPath : 0;
     }
 
-    public void dfs(String beginWord, String endWord, List<String> wordList, Stack<String> path){
-        //
+    // 找到了单词，记录路径长度返回
+    // 依次找变换过一个字母的单词
+    // 记录访问过的单词，避免重复访问
+    public void dfs(String beginWord, String endWord, List<String> wordList,HashSet<String> path){
+        //terminator
         if(beginWord.equals(endWord)){
-            path.push(beginWord);
+            // path.add(beginWord);
+            if(path.size()< minPath)minPath = path.size();
             return;
         }
 
-        //
-
-    }
-
-    public List<String> findCandidates(String beginWord, List<String> wordList){
-        List<String> res = new ArrayList<>();
         for (int i = 0; i < wordList.size(); i++) {
-            if(check(beginWord, wordList.get(i))){
-                res.add(wordList.get(i));
-            }
+            if(path.contains(wordList.get(i)) || !check(beginWord, wordList.get(i)))continue;
+            
+            path.add(wordList.get(i));
+            dfs(wordList.get(i), endWord, wordList, path);
+            path.remove(wordList.get(i));
         }
-        return res;
+
     }
 
     private boolean check(String first, String second) {
@@ -43,7 +45,7 @@ class Solution {
                 continue;
             }else{
                 //两个以上
-                if(diff>0) return false;
+                 if(diff>0) return false;
                 diff++;
             }   
         }
