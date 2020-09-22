@@ -9,7 +9,7 @@ class Solution {
 
         int ele1 = nums[0], ele2 = nums[0];
         int ele1Count = 0, ele2Count = 0;
-
+        //摩尓抵消，找到可能的众数
         for (int num : nums) {
            if(ele1 == num){
                ele1Count++;
@@ -32,12 +32,16 @@ class Solution {
            ele1Count--;
            ele2Count--;
         }
-        if(ele1 == ele2){
-            res.add(ele1);
-            return res;
+
+        //计数，选择众数
+        ele1Count = 0;
+        ele2Count = 0;
+        for (int num : nums) {
+            if(ele1 == num)ele1Count++;
+            else if(ele2 == num)ele2Count++;
         }
-        res.add(ele1);
-        res.add(ele2);
+        if(ele1Count > nums.length/3)res.add(ele1);
+        if(ele2Count > nums.length/3)res.add(ele2);
         return res;
 
 

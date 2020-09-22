@@ -7,12 +7,6 @@ function majorityElement(nums) {
             count = 1; 
         }else{
             count += cand_num == nums[i]? 1: -1;
-            // console.log(cand_num,nums[i]);
-            // if(cand_num == nums[i]){
-            //     count++;
-            // }else{
-            //     count--;
-            // }
         }
     }
     return cand_num;
