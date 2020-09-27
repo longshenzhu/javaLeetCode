@@ -1,25 +1,29 @@
 /**
- * @param {number[]} digits
- * @return {number[]}
+ * @param {string} s
+ * @return {string}
  */
-var twoSum = function(nums, target) {
-    const map = new Map();
-    for(let i=0;i< nums.length;i++){
-        if(map.has(target -nums[i])){
-            return [map.get(target - nums[i]),i];
-        }
-        map.set(nums[i],i);
+var replaceSpace = function(s) {
+    let res = [];
+    for (const iterator of s) {
+        res.push(iterator == ' '?'%20' : iterator);
     }
-    return [];
-    // for(var i=0;i<nums.length;i++){
-    //     var index = nums.indexOf(target-nums[i])
-    //     if(i == index){
-    //         continue;
-    //     }
-    //     if(index!= -1 ){
-    //         return [i,index];
-    //     }
+    return res.join('');
+    
+
+    // let res = '';
+    // for (const iterator of s) {
+    //     res += iterator == ' '?'%20' : iterator;
     // }
-    // return [];
+    // return res;
+
+
+    // let iterator = s[Symbol.iterator]();
+    // let res = '';
+    // let item = iterator.next();
+    
+    // while(!item.done){
+    //     if(!item.done && item.value != ' ')res += item.value;
+    // }
+
 };
-console.log(twoSum([2,7,11,15],9));
+replaceSpace("We are happy.");
