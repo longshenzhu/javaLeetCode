@@ -17,5 +17,31 @@ class Solution {
         }
 
         return false;
+
+        //两次二分查找
+        // if (matrix == null || matrix.length == 0) return false;
+        // // 二分缩小范围
+        // int rowLeft = 0, rowRight = matrix.length - 1;
+        // while (rowLeft < rowRight) {
+        //     int mid = (rowLeft + rowRight + 1) / 2;
+        //     if (matrix[mid][0] <= target) {
+        //         rowLeft = mid;
+        //     } else {
+        //         rowRight = mid - 1;
+        //     }
+        // }
+
+        // int[] nums = matrix[rowLeft];
+        // int left = 0, right = nums.length - 1;
+        // while (left <= right) {
+        //     int mid = (left + right) / 2;
+        //     if (nums[mid] == target) return true;
+        //     if (nums[mid] < target) {
+        //         left = mid + 1;
+        //     } else {
+        //         right = mid - 1;
+        //     }
+        // }
+        // return false;
     }
 }
