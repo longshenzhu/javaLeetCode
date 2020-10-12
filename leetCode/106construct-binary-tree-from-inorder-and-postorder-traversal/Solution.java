@@ -33,7 +33,7 @@ class Solution {
             }else if(inorderMap.get(postorder[i]) - inorderMap.get(postorder[i+1]) == -1) {
                 cur.left = new TreeNode(postorder[i]);
                 cur = cur.left;
-            }else if(inorderMap.get(postorder[i]) - inorderMap.get(postorder[i+1]) == -2){
+            }else{
                 nodeMaps.get(postorder[i+1]).left = new TreeNode(postorder[i]);
                 cur = nodeMaps.get(postorder[i+1]).left;
             }

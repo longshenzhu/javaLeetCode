@@ -11,6 +11,10 @@ class Solution {
         while(cur< nums.length-1){
             int step = 0;
             int maxSteps = 0;
+            if(cur + nums[cur]> nums.length){
+                count ++;
+                break;
+            }
             for(int i= 1; i<=nums[cur]; i++){
                 if(nums[cur+i] + i > maxSteps) {
                     maxSteps = nums[cur+i] + i;
