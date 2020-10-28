@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import javax.print.DocFlavor.STRING;
+
 import javafx.util.Pair;
 class Solution {
     public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -21,9 +23,26 @@ class Solution {
             }
         }
 
-        ArrayList<String> visited = new ArrayList<>();
-        
-        while()
+        HashMap<String,Boolean> visited = new HashMap<>();
+        Queue<Pair<String, Integer>> queue = new LinkedList<>();
+        queue.add(new Pair<>(beginWord, 1));
+        visited.put(beginWord, true);
+        while(!queue.isEmpty()){
+            Pair<String, Integer> node = queue.remove();
+            String curWord = node.getKey();
+            int curLevel = node.getValue();
+            for (int i = 0; i < len; i++) {
+                String pipeiStr = curWord.substring(0,i) + "*" + curWord.substring(i+1, len);
+                ArrayList<String> pipeiList = tongpeiStr.getOrDefault(pipeiStr,new ArrayList<>());
+                for (String word : pipeiList) {
+                    if(word.equals(endWord))return curLevel + 1;
+                    if(!visited.containsKey(word)){
+                        queue.add(new Pair<>(word, curLevel + 1));
+                        visited.put(word,true);
+                    }
+                } 
+            }
+        }
         return 0;
     }
 }
