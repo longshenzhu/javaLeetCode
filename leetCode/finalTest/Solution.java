@@ -9,12 +9,14 @@ class Solution {
 
         for (int i = 2; i < len + 1; i++) {
             if(s.substring(i-2, i).equals("00"))return 0;
+            int codeNum = Integer.parseInt(s.substring(i-2, i));
+            if(s.substring(i-1, i).equals("0") && codeNum > 26) return 0;
             if(s.substring(i-1, i).equals("0")){
                 dp[i] = dp[i-2];
                 continue;
             }
             // System.out.println(s.substring(i-2, i));
-            int codeNum = Integer.parseInt(s.substring(i-2, i));
+            
             if(codeNum < 10){
                 dp[i] = dp[i-1];
             }else{
