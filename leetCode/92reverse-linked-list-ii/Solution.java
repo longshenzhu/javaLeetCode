@@ -28,9 +28,12 @@ class Solution {
             n --;
         }
         //连接
-        if(tail != null)tail.next = prev;
+        if(tail != null){
+            tail.next = prev;
+        }else {
+            head = prev;
+        }
         mNode.next = cur;
-
         return head;
     }
 
