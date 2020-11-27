@@ -21,6 +21,7 @@ class Solution {
         }
         //3、起始值
         return dp[row - 1][column - 1];
+        
         // for (int i = 0; i < raw; i++) {
         //     for (int j = 0; j < column; j++) {
         //         if(i == 0 && j == 0){
