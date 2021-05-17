@@ -53,4 +53,24 @@ function ListNode(val) {
     this.val = val;
     this.next = null;
 }
-console.log(twoSum([2,7,11,15],9));
+
+var swapPairs1 = function(head) {
+    if(!head || !head.next)return head;
+    var dummyHead = new ListNode(0);
+    dummyHead.next = head.next;
+
+    var temp = dummyHead;
+    var pre = temp.next;
+    var post = temp.next.next;
+    while(pre && post){
+        // post.next
+        // temp.next = post;
+        pre.next = post.next;
+        post.next = pre;
+        temp = 
+        
+        temp = pre;
+        
+    }
+    return dummyHead.next;
+}

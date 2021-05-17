@@ -37,3 +37,42 @@ var inorderTraversal = function(root) {
     //     this.left = this.right = null;
     // }
 };
+
+var inOrderTraversal = function(root) {
+    if(root == null)return [];
+
+    const number = [];
+    function traversal(root){
+        root.left && traversal(root.left);
+        number.push(root.val);
+        root.right && traversal(root.right)
+    }
+    return number;
+}
+
+var priOrderTraversal = function(root) {
+    if(root == null)return [];
+    const number = [];
+    function traversal(root){
+        number.push(root.val);
+        root.left && traversal(root.left);
+        root.right && traversal(root.right);
+    }
+    return number;
+}
+
+var postOrderTraversal = function (root){
+    if(!root)return [];
+    const number = [];
+    function traversal(root){
+        root.left && traversal(root.left);
+        root.right && traversal(root.right);
+        number.push(root.val);
+    }
+    return number;
+}
+
+//1、递归中止条件
+//2、当前层的逻辑
+//3、drill down
+//4、清理现场
